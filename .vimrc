@@ -54,3 +54,12 @@ Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
 
 call plug#end()
+
+
+" Lightline edtits
+set laststatus=2
+
+let g:lightline = {
+      \ 'colorscheme': 'powerline',
+      \ }
+
