@@ -1,65 +1,40 @@
-"number lines
+set scrolloff=8
 set number
-
-" file stats
-set ruler
-
-" sytax hilighting
-syntax on
-
-" Whitespace
-set wrap
-set textwidth=79
-set formatoptions=tcqrn1
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
+set relativenumber
+set guicursor=
+set tabstop=4 softtabstop=4
+set shiftwidth=4
 set expandtab
-set noshiftround
+set smartindent
 
-" https://github.com/junegunn/vim-plug
 call plug#begin('~/.vim/plugged')
-
-" sensible vim defaults
-Plug 'tpope/vim-sensible'
-
-" highlights brackets with different colors (use :RainbowToggle)
-Plug 'frazrepo/vim-rainbow'
-
-" line at bottom of screen
-Plug 'itchyny/lightline.vim'
-
-" elm-lang Syntax higlighting
-Plug 'elmcast/elm-vim'
-
-" Any valid git URL is allowed
-Plug 'https://github.com/junegunn/vim-github-dashboard.git'
-
-" NERD tree will be loaded on the first invocation of NERDTreeToggle command
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-
-
-" Fuzzy seraching for file
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-
-Plug 'mattn/emmet-vim'
-
-" self explanitory (ctrl-N)
-Plug 'terryma/vim-multiple-cursors'
-
-" adds a dozen core Unix file operations as Vim commands in the context of the current file
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-surround'
-Plug 'w0rp/ale'
-
+Plug 'ayu-theme/ayu-vim'
 call plug#end()
 
 
-" Lightline edtits
-set laststatus=2
+" color schemes
+set termguicolors     " enable true colors support
+" let ayucolor="light"  " for light version of theme
+" let ayucolor="mirage" " for mirage version of theme
+let ayucolor="dark"   " for dark version of theme
+colorscheme ayu
 
-let g:lightline = {
-      \ 'colorscheme': 'powerline',
-      \ }
 
+let mapleader = " "
+" n = vim mode ('n','v','i')
+" nore = not recursive execution
+" map [something] -> [what it is]
+nnoremap <leader>pv :Vex<CR>
+
+
+" reload the vimrc
+" so = source
+" % = current file
+nnoremap <leader><CR> :so ~/.vimrc<CR>
+
+" fuzzy find over git files or normal files using ctrl-p, or ' 'pf
+" crtl-p as for vscode
+nnoremap <C-p> :GFiles<CR>
+nnoremap <leader>pf :Files<CR>
