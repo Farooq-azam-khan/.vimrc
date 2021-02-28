@@ -11,7 +11,10 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'ayu-theme/ayu-vim'
+Plug 'dense-analysis/ale'
+Plug 'elmcast/elm-vim'
 Plug 'rust-lang/rust.vim'
+Plug 'cespare/vim-toml'
 call plug#end()
 
 
@@ -39,3 +42,14 @@ nnoremap <leader><CR> :so ~/.vimrc<CR>
 " crtl-p as for vscode
 nnoremap <C-p> :GFiles<CR>
 nnoremap <leader>pf :Files<CR>
+
+" Elm provided key bindings (disabled)
+let g:elm_setup_keybindings = 0
+nnoremap <leader>ef :ElmFormat<CR>
+" <leader>m = compiles current buffer
+" <leader>b = compiles Main.elm
+" <leader>t = runs tests
+" <leader>r = opens elm repl
+" <leader>e = detail of current error
+" <leader>d = shows types and docs under cursor
+" <leader>w = opens docs webpage
